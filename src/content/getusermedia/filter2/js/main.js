@@ -50,7 +50,7 @@ function gotDevices(deviceInfos) {
 
 }
 
-//navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
 
 const constraints = {
@@ -76,7 +76,7 @@ function start() {
     audio: false,
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
-  navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).then(gotDevices).catch(handleError);
+  navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
 }
 
 videoSelect.onchange = start;
