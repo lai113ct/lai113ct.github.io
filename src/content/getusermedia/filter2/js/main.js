@@ -11,6 +11,7 @@
 const snapshotButton = document.querySelector('button#snapshot');
 const filterSelect = document.querySelector('select#filter');
 const videoSelect = document.querySelector('select#videoSource');
+const selectors = [videoSelect];
 
 // Put variables in global scope to make them available to the browser console.
 const video = window.video = document.querySelector('video');
