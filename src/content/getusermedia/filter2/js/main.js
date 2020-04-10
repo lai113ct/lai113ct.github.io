@@ -54,10 +54,15 @@ function getReferenceColot(canvas) {
 												mmgTotal[i][r], mmgTotal[i+1][r],
 												mmgTst[r]);
 			}
+			if(i == 5){
+				mmgCal[r] = mathsInterpolation(	mmgTotal[i][0], mmgTotal[i+1][0],
+												mmgTotal[i][r], mmgTotal[i+1][r],
+												mmgTst[r]);
+			}
 		}
 	}
 	
-	return mmg20;
+	return mmgCal;
 }
 
 function getAverage(canvas, x, y, xi, yj){
