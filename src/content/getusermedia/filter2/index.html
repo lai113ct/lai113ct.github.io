@@ -33,10 +33,15 @@
         }
 
         .blur {
-            -webkit-filter: blur(3px);
-            filter: blur(3px);
+            -webkit-filter: blur(2px);
+            filter: blur(2px);
         }
 
+        .blur2grayscale {
+            -webkit-filter: blur(10px) grayscale(1);
+            filter: blur(10px) grayscale(1);
+        }
+		
         .grayscale {
             -webkit-filter: grayscale(1);
             filter: grayscale(1);
@@ -76,6 +81,7 @@
     <select id="filter">
         <option value="none">None</option>
         <option value="blur">Blur</option>
+		<option value="blur2grayscale">blur2grayscale</option>
         <option value="grayscale">Grayscale</option>
         <option value="invert">Invert</option>
         <option value="sepia">Sepia</option>
