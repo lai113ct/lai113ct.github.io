@@ -16,9 +16,9 @@ const selectors = [videoSelect];
 // Put variables in global scope to make them available to the browser console.
 const video = window.video = document.querySelector('video');
 const canvas = window.canvas = document.querySelector('canvas');
-canvas.width = 200;
-canvas.height = 300;
-video.className = 'blur';
+canvas.width = 480;
+canvas.height = 360;
+//video.className = 'blur';
 
 snapshotButton.onclick = function() {
   canvas.className = filterSelect.value;
