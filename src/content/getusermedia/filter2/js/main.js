@@ -58,7 +58,7 @@ function getReferenceColot(canvas) {
 												mmgTotal[i][r], mmgTotal[i+1][r],
 												mmgTst[r]);
 			}
-			if(i == 5){
+			if(i == 5 && mmgCal[r]==0){
 				mmgCal[r] = mathsInterpolation(	mmgTotal[i][3], mmgTotal[i+1][3],
 												mmgTotal[i][r], mmgTotal[i+1][r],
 												mmgTst[r]);
