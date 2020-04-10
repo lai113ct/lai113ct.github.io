@@ -36,13 +36,13 @@ function mathsInterpolation(x0,x1,y0,y1,yf){
 	return (x0 - (x0-x1)/(y0-y1)*(y0-yf));
 }
 function getReferenceColot(canvas) {
-	var mmg20   = getAverage(canvas, 150,100,70,15).concat(20);
-	var mmg50   = getAverage(canvas, 150,140,100,15).concat(50);
-	var mmg100  = getAverage(canvas, 150,185,100,15).concat(100);
-	var mmg300  = getAverage(canvas, 150,226,100,15).concat(300);
-	var mmg500  = getAverage(canvas, 150,264,100,15).concat(500);
-	var mmg1000 = getAverage(canvas, 150,303,100,15).concat(1000);
-	var mmg1500 = getAverage(canvas, 150,344,100,15).concat(1500);
+	var mmg20   = getAverage(canvas, 150,100,60,15).concat(20);
+	var mmg50   = getAverage(canvas, 150,140,60,15).concat(50);
+	var mmg100  = getAverage(canvas, 150,185,60,15).concat(100);
+	var mmg300  = getAverage(canvas, 150,226,60,15).concat(300);
+	var mmg500  = getAverage(canvas, 150,264,60,15).concat(500);
+	var mmg1000 = getAverage(canvas, 150,303,60,15).concat(1000);
+	var mmg1500 = getAverage(canvas, 150,344,60,15).concat(1500);
 	var mmgTst  = getAverage(canvas, 33,130,20,50).concat(0);
 	var mmgCal  = [0,0,0,0];
 	
