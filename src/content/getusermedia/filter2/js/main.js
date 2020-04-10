@@ -76,6 +76,7 @@ function getAverage(canvas, x, y, xi, yj){
 	var nX, nY, pixel = 0;
 	var context = canvas.getContext("2d");
 	context.fillStyle = 'rgb(255,255,0)';
+	context.font = "20px Arial";
 	for( let i=0; i < xi; i++) {
 		for( let j=0; j < yj; j++) {
 			nX = Number(x) + Number(i);
@@ -87,9 +88,10 @@ function getAverage(canvas, x, y, xi, yj){
 			context.fillRect(nX, nY, 1, 1);
 		}
 	}
-	cR = cR / xi /yj;
-	cG = cR / xi /yj;
-	cB = cR / xi /yj;
+	cR = Math.floor(cR / xi /yj);
+	cG = Math.floor(cR / xi /yj);
+	cB = Math.floor(cR / xi /yj);
+	context.fillText(cR+","+cG+","+cB, x-20, y-5);
 	return [cR, cG, cB];
 }
 
