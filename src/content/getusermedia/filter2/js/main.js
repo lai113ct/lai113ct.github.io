@@ -72,7 +72,7 @@ function gotDevices(deviceInfos) {
 }
 //textreturn
 //document.getElementById("demo").innerHTML = 
-navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+//navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
 
 const constraints = {
