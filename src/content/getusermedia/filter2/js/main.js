@@ -16,20 +16,16 @@ const selectors = [videoSelect];
 // Put variables in global scope to make them available to the browser console.
 const video = window.video = document.querySelector('video');
 const canvas = window.canvas = document.querySelector('canvas');
-canvas.width = 480;
-canvas.height = 360;
-//video.className = 'blur';
+canvas.width = 270;
+canvas.height = 480;
+video.className = 'blur';
 
 snapshotButton.onclick = function() {
   canvas.className = filterSelect.value;
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   
 
-  canvas.getContext('2d').fillStyle = 'rgb(' + Math.floor(255) + ',' +
-                       Math.floor(255) + ',0)';
-  canvas.getContext('2d').fillRect(25,25,25,25);
-  
-  document.getElementById("textreturn").innerHTML = getColor(canvas, 24,24);
+  document.getElementById("textreturn").innerHTML = getAverage(canvas, 150,100,80,20);
   
 };
 
@@ -37,8 +33,31 @@ filterSelect.onchange = function() {
   video.className = filterSelect.value;
 };
 
+function getAverage(canvas, x, y, xi, yj){
+	var cR = 0;
+	var cG = 0;
+	var cB = 0;
+	var nX, nY, pixel = 0;
+	var context = canvas.getContext("2d");
+	context.fillStyle = 'rgb(255,255,0)';
+	for( let i=0; i < xi; i++) {
+		for( let j=0; j < yj; j++) {
+			nX = Number(x) + Number(i);
+			nY = Number(y) + Number(j);
+			pixel = context.getImageData(nX, nY, 1, 1);
+			cR+= pixel.data[0];
+			cG+= pixel.data[1];
+			cB+= pixel.data[2];
+			context.fillRect(nX, nY, 1, 1);
+		}
+	}
+	cR = cR / xi /yj;
+	cG = cR / xi /yj;
+	cB = cR / xi /yj;
+	return cR + "," + cG + "," + cB;
+}
 
-function getColor(canvas, x, y) {    
+function getColor(canvas, x, y, xi, yi){  
     var context = canvas.getContext("2d");
     var pixel = context.getImageData(x, y, 2, 2);
 
