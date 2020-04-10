@@ -33,16 +33,16 @@ filterSelect.onchange = function() {
 };
 
 function mathsInterpolation(x0,x1,y0,y1,yf){
-	return floor(x0 - (x0-x1)/(y0-y1)*(y0-yf));
+	return Math.floor(x0 - (x0-x1)/(y0-y1)*(y0-yf));
 }
 function getReferenceColot(canvas) {
-	var mmg20   = getAverage(canvas, 150,100,60,15).concat(20);
-	var mmg50   = getAverage(canvas, 150,140,60,15).concat(50);
-	var mmg100  = getAverage(canvas, 150,185,60,15).concat(100);
-	var mmg300  = getAverage(canvas, 150,226,60,15).concat(300);
-	var mmg500  = getAverage(canvas, 150,264,60,15).concat(500);
-	var mmg1000 = getAverage(canvas, 150,303,60,15).concat(1000);
-	var mmg1500 = getAverage(canvas, 150,344,60,15).concat(1500);
+	var mmg20   = getAverage(canvas, 150,100,60,10).concat(20);
+	var mmg50   = getAverage(canvas, 150,140,60,10).concat(50);
+	var mmg100  = getAverage(canvas, 150,185,60,10).concat(100);
+	var mmg300  = getAverage(canvas, 150,226,60,10).concat(300);
+	var mmg500  = getAverage(canvas, 150,264,60,10).concat(500);
+	var mmg1000 = getAverage(canvas, 150,303,60,10).concat(1000);
+	var mmg1500 = getAverage(canvas, 150,341,60,10).concat(1500);
 	var mmgTst  = getAverage(canvas, 33,130,20,50).concat(0);
 	var mmgCal  = [0,0,0,0];
 	
