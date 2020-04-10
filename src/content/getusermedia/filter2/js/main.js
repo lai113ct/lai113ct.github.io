@@ -67,7 +67,7 @@ function handleError(error) {
   console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
 }
 
-navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+//navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
 
 function start() {
 
@@ -76,7 +76,7 @@ function start() {
     audio: false,
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
-  navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
+  navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
 }
 
 videoSelect.onchange = start;
