@@ -18,7 +18,7 @@ const video = window.video = document.querySelector('video');
 const canvas = window.canvas = document.querySelector('canvas');
 canvas.width = 480;
 canvas.height = 360;
-//video.className = 'blur';
+video.className = 'blur2grayscale';
 
 snapshotButton.onclick = function() {
   canvas.className = filterSelect.value;
