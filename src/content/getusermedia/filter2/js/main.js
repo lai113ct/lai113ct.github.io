@@ -89,8 +89,8 @@ function getAverage(canvas, x, y, xi, yj){
 		}
 	}
 	cR = Math.floor(cR / xi /yj);
-	cG = Math.floor(cR / xi /yj);
-	cB = Math.floor(cR / xi /yj);
+	cG = Math.floor(cG / xi /yj);
+	cB = Math.floor(cB / xi /yj);
 	context.fillText(cR+","+cG+","+cB, x-20, y-5);
 	return [cR, cG, cB];
 }
