@@ -54,12 +54,12 @@ function getReferenceColot(canvas) {
 	for(let r = 0; r < 3; r++){
 		for(let i = 0; i < 6; i++){
 			if(mmgTotal[i][r]<=mmgTst[r] && mmgTst[r]<mmgTotal[i+1][r]){
-				mmgCal[r] = mathsInterpolation(	mmgTotal[i][0], mmgTotal[i+1][0],
+				mmgCal[r] = mathsInterpolation(	mmgTotal[i][3], mmgTotal[i+1][3],
 												mmgTotal[i][r], mmgTotal[i+1][r],
 												mmgTst[r]);
 			}
 			if(i == 5){
-				mmgCal[r] = mathsInterpolation(	mmgTotal[i][0], mmgTotal[i+1][0],
+				mmgCal[r] = mathsInterpolation(	mmgTotal[i][3], mmgTotal[i+1][3],
 												mmgTotal[i][r], mmgTotal[i+1][r],
 												mmgTst[r]);
 			}
