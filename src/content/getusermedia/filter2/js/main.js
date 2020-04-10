@@ -80,3 +80,4 @@ function start() {
 }
 
 videoSelect.onchange = start;
+start();
