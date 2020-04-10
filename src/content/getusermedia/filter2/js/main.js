@@ -154,6 +154,7 @@ function start() {
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
   navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+  snapshotUpdate();
 }
 
 videoSelect.onchange = start;
