@@ -20,12 +20,16 @@ canvas.width = 280;
 canvas.height = 380;
 video.className = 'blur';
 
-snapshotButton.onclick = function() {
+
+function snapshotUpdate(){
   canvas.className = filterSelect.value;
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   
   document.getElementById("textreturn").innerHTML = getReferenceColot(canvas);
-  
+  setTimeout(snapshotUpdate, 500);
+}
+snapshotButton.onclick = function() {
+	snapshotUpdate()
 };
 
 filterSelect.onchange = function() {
@@ -47,7 +51,7 @@ function getReferenceColot(canvas) {
 	var mmgCal  = [0,0,0,0];
 	
 	var mmgTotal = [mmg20, mmg50, mmg100, mmg300, mmg500, mmg1000, mmg1500];
-	for(let r = 1; r < 4; r++){
+	for(let r = 0; r < 3; r++){
 		for(let i = 0; i < 6; i++){
 			if(mmgTotal[i][r]<=mmgTst[r] && mmgTst[r]<mmgTotal[i+1][r]){
 				mmgCal[r] = mathsInterpolation(	mmgTotal[i][0], mmgTotal[i+1][0],
