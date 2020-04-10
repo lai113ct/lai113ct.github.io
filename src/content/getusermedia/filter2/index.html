@@ -72,9 +72,10 @@
 <body>
 <div id="container">
 
-    <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>getUserMedia + CSS filters</span>
-    </h1>
+    <button id="snapshot">Take snapshot</button>
 
+    <canvas></canvas>
+	
     <video playsinline autoplay></video>
 
     <label for="filter">Filter: </label>
@@ -90,9 +91,6 @@
         <label for="videoSource">Video source: </label><select id="videoSource"></select>
     </div>
 	
-    <button id="snapshot">Take snapshot</button>
-
-    <canvas></canvas>
 	<p id="textreturn"></div>
     <p>Draw a frame from the getUserMedia video stream onto the canvas element, then apply CSS filters.</p>
 
