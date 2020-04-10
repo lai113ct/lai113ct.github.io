@@ -33,7 +33,7 @@ filterSelect.onchange = function() {
 };
 
 function mathsInterpolation(x0,x1,y0,y1,yf){
-	return (x0 - (x0-x1)/(y0-y1)*(y0-yf));
+	return floor(x0 - (x0-x1)/(y0-y1)*(y0-yf));
 }
 function getReferenceColot(canvas) {
 	var mmg20   = getAverage(canvas, 150,100,60,15).concat(20);
