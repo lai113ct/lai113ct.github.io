@@ -18,15 +18,36 @@ const video = window.video = document.querySelector('video');
 const canvas = window.canvas = document.querySelector('canvas');
 canvas.width = 480;
 canvas.height = 360;
+//video.className = 'blur';
 
 snapshotButton.onclick = function() {
   canvas.className = filterSelect.value;
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+  
+
+  canvas.getContext('2d').fillStyle = 'rgb(' + Math.floor(255) + ',' +
+                       Math.floor(255) + ',0)';
+  canvas.getContext('2d').fillRect(25,25,25,25);
+  
+  document.getElementById("textreturn").innerHTML = getColor(canvas, 24,24);
+  
 };
 
 filterSelect.onchange = function() {
   video.className = filterSelect.value;
 };
+
+
+function getColor(canvas, x, y) {    
+    var context = canvas.getContext("2d");
+    var pixel = context.getImageData(x, y, 2, 2);
+
+    // Red = rgb[0], green = rgb[1], blue = rgb[2]
+    // All colors are within range [0, 255]
+    var rgb = pixel.data;
+
+    return rgb;
+}
 
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
@@ -49,7 +70,8 @@ function gotDevices(deviceInfos) {
   }
 
 }
-
+//textreturn
+//document.getElementById("demo").innerHTML = 
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
 
