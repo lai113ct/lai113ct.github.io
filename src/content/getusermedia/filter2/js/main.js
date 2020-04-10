@@ -24,7 +24,6 @@ snapshotButton.onclick = function() {
   canvas.className = filterSelect.value;
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   
-
   document.getElementById("textreturn").innerHTML = getAverage(canvas, 150,100,80,20);
   
 };
