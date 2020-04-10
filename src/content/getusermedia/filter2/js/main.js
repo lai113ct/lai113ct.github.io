@@ -16,21 +16,49 @@ const selectors = [videoSelect];
 // Put variables in global scope to make them available to the browser console.
 const video = window.video = document.querySelector('video');
 const canvas = window.canvas = document.querySelector('canvas');
-canvas.width = 270;
-canvas.height = 480;
+canvas.width = 281;
+canvas.height = 500;
 video.className = 'blur';
 
 snapshotButton.onclick = function() {
   canvas.className = filterSelect.value;
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   
-  document.getElementById("textreturn").innerHTML = getAverage(canvas, 150,100,80,20);
+  document.getElementById("textreturn").innerHTML = getReferenceColot(canvas);
   
 };
 
 filterSelect.onchange = function() {
   video.className = filterSelect.value;
 };
+
+function mathsInterpolation(x0,x1,y0,y1,yf){
+	return (x0 - (x0-x1)/(y0-y1)*(y0-yf));
+}
+function getReferenceColot(canvas) {
+	var mmg20   = getAverage(canvas, 150,100,100,15).concat(20);
+	var mmg50   = getAverage(canvas, 150,140,100,15).concat(50);
+	var mmg100  = getAverage(canvas, 150,185,100,15).concat(100);
+	var mmg300  = getAverage(canvas, 150,233,100,15).concat(300);
+	var mmg500  = getAverage(canvas, 150,275,100,15).concat(500);
+	var mmg1000 = getAverage(canvas, 150,320,100,15).concat(1000);
+	var mmg1500 = getAverage(canvas, 150,365,100,15).concat(1500);
+	var mmgTst  = getAverage(canvas, 45,130,20,60).concat(0);
+	var mmgCal  = [0,0,0,0];
+	
+	var mmgTotal = [mmg20, mmg50, mmg100, mmg300, mmg500, mmg1000, mmg1500];
+	for(let r = 1; r < 4; r++){
+		for(let i = 0; i < 6; i++){
+			if(mmgTotal[i][r]<=mmgTst[r] && mmgTst[r]<mmgTotal[i+1][r]){
+				mmgCal[r] = mathsInterpolation(	mmgTotal[i][0], mmgTotal[i+1][0],
+												mmgTotal[i][r], mmgTotal[i+1][r],
+												mmgTst[r]);
+			}
+		}
+	}
+	
+	return mmg20;
+}
 
 function getAverage(canvas, x, y, xi, yj){
 	var cR = 0;
@@ -53,7 +81,7 @@ function getAverage(canvas, x, y, xi, yj){
 	cR = cR / xi /yj;
 	cG = cR / xi /yj;
 	cB = cR / xi /yj;
-	return cR + "," + cG + "," + cB;
+	return [cR, cG, cB];
 }
 
 function getColor(canvas, x, y, xi, yi){  
