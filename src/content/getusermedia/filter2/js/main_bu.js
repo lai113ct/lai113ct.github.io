@@ -24,12 +24,7 @@ snapshotButton.onclick = function() {
   canvas.className = filterSelect.value;
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   
-
-  canvas.getContext('2d').fillStyle = 'rgb(' + Math.floor(255) + ',' +
-                       Math.floor(255) + ',0)';
-  canvas.getContext('2d').fillRect(25,25,25,25);
-  
-  document.getElementById("textreturn").innerHTML = getColor(canvas, 24,24);
+  document.getElementById("textreturn").innerHTML = getAverage(canvas, 24,24,4,1);
   
 };
 
@@ -40,13 +35,28 @@ filterSelect.onchange = function() {
 
 function getColor(canvas, x, y) {    
     var context = canvas.getContext("2d");
-    var pixel = context.getImageData(x, y, 2, 2);
+    var pixel = context.getImageData(x, y, 1, 1);
 
     // Red = rgb[0], green = rgb[1], blue = rgb[2]
     // All colors are within range [0, 255]
     var rgb = pixel.data;
 
     return rgb;
+}
+function getAverage(canvas, x, y, xi, yi){
+	var cR = 0;
+	var cG = 0;
+	var cB = 0;
+	var context = canvas.getContext("2d");
+	context.fillStyle = 'rgb(200,200,0)';
+	for( let i=0; i < xi; i++) {
+		pixel = context.getImageData(x+i, y, 1, 1);
+		cR+= pixel.data[0];
+		cG+= pixel.data[1];
+		cB+= pixel.data[2];
+		context.fillRect(x+i, y, 1, 1);
+	}
+	return cR + "," + cG + "," + "cB";
 }
 
 function gotDevices(deviceInfos) {
