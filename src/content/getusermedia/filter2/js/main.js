@@ -47,7 +47,7 @@ function getReferenceColot(canvas) {
 	var mmg500  = getAverage(canvas, 150,264,60,10).concat(500);
 	var mmg1000 = getAverage(canvas, 150,303,60,10).concat(1000);
 	var mmg1500 = getAverage(canvas, 150,341,60,10).concat(1500);
-	var mmgTst  = getAverage(canvas, 33,130,20,50).concat(0);
+	var mmgTst  = getAverage(canvas, 33,130,15,20).concat(0);
 	var mmgCal  = [0,0,0,0];
 	
 	var mmgTotal = [mmg20, mmg50, mmg100, mmg300, mmg500, mmg1000, mmg1500];
