@@ -26,7 +26,7 @@ function snapshotUpdate(){
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   
   document.getElementById("textreturn").innerHTML = getReferenceColot(canvas);
-  setTimeout(snapshotUpdate, 100);
+  setTimeout(snapshotUpdate, 33);
 }
 snapshotButton.onclick = function() {
 	snapshotUpdate()
@@ -66,7 +66,8 @@ function getReferenceColot(canvas) {
 		}
 	}
 	mmgCal[3] = Math.floor((mmgCal[0]+mmgCal[1]+mmgCal[2])/3);
-	return "R=" + mmgCal[0] + " G=" + mmgCal[1] + " B=" + mmgCal[2] + " Avg=" + mmgCal[3];
+	var avgRG = Math.floor((mmgCal[0]+mmgCal[1])/2);
+	return "R=" + mmgCal[0] + " G=" + mmgCal[1] + " B=" + mmgCal[2] + " RG Avg=" + avgRG + " RGB Avg=" + mmgCal[3];
 }
 
 function getAverage(canvas, x, y, xi, yj){
