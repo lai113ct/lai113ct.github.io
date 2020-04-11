@@ -67,7 +67,7 @@ function getReferenceColot(canvas) {
 	}
 	mmgCal[3] = Math.floor((mmgCal[0]+mmgCal[1]+mmgCal[2])/3);
 	var avgRG = Math.floor((mmgCal[0]+mmgCal[1])/2);
-	return "R=" + mmgCal[0] + " G=" + mmgCal[1] + " B=" + mmgCal[2] + " RG Avg=" + avgRG + " RGB Avg=" + mmgCal[3];
+	return "R=" + mmgCal[0] + " G=" + mmgCal[1] + " B=" + mmgCal[2] + " RGavg=" + avgRG + " RGBavg=" + mmgCal[3];
 }
 
 function getAverage(canvas, x, y, xi, yj){
